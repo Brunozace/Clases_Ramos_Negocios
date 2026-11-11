@@ -1,6 +1,6 @@
 # Clases Ramos de Negocios
 
-Spanish-language static landing page for `clasesramosdenegocios.cl`, built with Vite and vanilla HTML, CSS and JavaScript. It presents Andrés's classes, 19 university/MBA subjects and five school subjects, with general and subject-specific WhatsApp links.
+Spanish-language static site for `clasesramosdenegocios.cl`, built with Vite and vanilla HTML, CSS and JavaScript. It presents Grupo A.G.MHZ's classes online throughout Chile and in person in Concepción, 19 university/MBA subjects and five school subjects, with general and subject-specific WhatsApp links.
 
 Bruno authorized pushing this redesign to `main`. Production deployment remains a separate step. The design takes visual inspiration from the supplied mobile reference video: centered serif headings, generous whitespace, rounded imagery, subtle scroll entrances and expandable questions. The original logo, green WhatsApp buttons and complete catalog are preserved. FAQs are inside the instructor/modalities section, retaining five main sections.
 
@@ -26,16 +26,18 @@ npm run preview
 
 - `src/catalog.json`: current subject catalog, including Bruno's review changes. Edit subject names here; the page and WhatsApp drafts use the same values.
 - `src/contact.json`: current confirmed contact: **+56 9 7982 1150**, WhatsApp destination **56979821150**. Bruno's latest correction supersedes the archived kit's phone instructions. Visible numbers, copy-number data and every WhatsApp link use this source.
+- `src/profile.json`: client-approved group identity, nationwide online coverage and current profile/SEO copy; overrides the archived personal introduction.
+- `src/legal.json` and `src/legal-page.html`: terms and privacy copy from the client workbook received 11 November 2026, rendered to separate linked pages. Privacy collection wording reflects the actual WhatsApp/email flow. The original workbook remains unchanged.
 - `clases-codex-kit/02_CONTENT.json`: original editorial source for facts and proposed copy. The kit is preserved as reference; `src/catalog.json` and `src/contact.json` override its original catalog and contact.
 - `src/page.html`: page template. Edit this instead of generated `index.html`.
 - `src/styles.css`: responsive styling, including green WhatsApp buttons.
-- `src/main.js`: mobile navigation, current-section indication, copy-number enhancement and optional scroll reveals. Reduced-motion preferences disable animation. Native FAQ disclosures work without JavaScript; JS also supports single-open behavior on older browsers.
+- `src/main.js`: mobile navigation, current-section indication, copy-number enhancement, scroll reveals and a continuously sliding study strip without playback controls, as requested by the client. Reduced-motion preferences still disable the other page animations. Native FAQ disclosures work without JavaScript; JS also supports single-open behavior on older browsers.
 - `scripts/render.mjs`: generates static content and encoded WhatsApp links before development/build.
 - `public/`: local assets. See `ASSETS.md` for provenance.
 
 The user-selected business logo is included as `public/logo.png` and used in the header and footer. To replace it, save an approved PNG there and restart `npm run dev` or rebuild. Source dimensions are 2172 × 724. If the file is absent, the text identity is retained.
 
-Andrés's portrait has not been supplied. His introduction is intentionally text-only. When an authorized genuine portrait arrives, add an optimized local image with descriptive alternative text and explicit dimensions, update the profile layout, and revise the validator's no-portrait assertion. Do not substitute an unrelated or generated person.
+The group introduction is text-only, with no stock or generated portrait presented as the service provider.
 
 ## Review and production
 
@@ -49,7 +51,7 @@ npm run build:production
 Remove-Item Env:CONFIRMED_SITE_URL
 ```
 
-The production build removes `noindex` and adds the canonical URL, Open Graph URL and one-page sitemap. Running `npm run build` again restores the review output. Setting the environment variable is an operator acknowledgement; the build does not verify DNS or approval.
+The production build removes `noindex` and adds a distinct canonical URL for each page, Open Graph URLs and a three-page sitemap. Running `npm run build` again restores the review output. Setting the environment variable is an operator acknowledgement; the build does not verify DNS or approval.
 
 ## Render Static Site
 

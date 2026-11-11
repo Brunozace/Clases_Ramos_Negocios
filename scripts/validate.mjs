@@ -27,7 +27,8 @@ for (const a of contact) {
 assert.equal((html.match(/<h1\b/g) || []).length, 1);
 assert.equal((html.match(/<section\b/g) || []).length, 5);
 assert.ok(html.includes('lang="es-CL"'));
-assert.ok(html.includes('Conoce a Andrés'));
+assert.ok(html.includes('Grupo A.G.MHZ'));
+assert.ok(html.includes('Online en todo Chile'));
 assert.ok(html.includes(c.proposedCopy.instructor.introduction));
 const instructorSection = html.match(/<section id="modalidades"[\s\S]*?<\/section>/)?.[0];
 assert.ok(instructorSection && !instructorSection.includes('<img'), 'No substitute instructor portrait or placeholder');
@@ -50,11 +51,27 @@ function scan(dir) {
     if (!/\.(?:html|css|js|json|txt|xml|svg)$/i.test(entry.name)) continue;
     const source = readFileSync(path, 'utf8');
     assert.ok(!/7549[\s-]*1987/.test(source), 'Superseded contact absent');
+    assert.ok(!/Andrés/.test(source), 'Personal name replaced by client-approved group identity');
     assert.ok(!/foto pendiente|photo pending|\{\{[A-Z]+\}\}/i.test(source), 'No unresolved placeholders');
   }
 }
 scan(fileURLToPath(root));
 const production = process.argv.includes('--production');
+const legal = JSON.parse(readFileSync(new URL('../src/legal.json', import.meta.url), 'utf8'));
+for (const page of legal.pages) {
+  const legalHtml = readFileSync(new URL(page.filename, root), 'utf8');
+  assert.ok(html.includes(`href="/${page.filename}"`), 'Legal page linked from homepage');
+  assert.ok(legalHtml.includes(`<h1>${page.title}</h1>`));
+  for (const section of page.sections) {
+    for (const paragraph of section.paragraphs) assert.ok(legalHtml.includes(paragraph), 'Legal paragraph preserved');
+    if (section.email) assert.ok(legalHtml.includes(`href="mailto:${section.email}"`));
+  }
+  for (const match of legalHtml.matchAll(/(?:src|href)="(\/[^"#?]*)"/g)) {
+    assert.ok(existsSync(new URL(match[1] === '/' ? 'index.html' : match[1].slice(1), root)), 'Legal page target exists');
+  }
+  assert.equal(legalHtml.includes('content="noindex, nofollow"'), !production);
+  if (production) assert.ok(legalHtml.includes(`rel="canonical" href="https://clasesramosdenegocios.cl/${page.filename}"`));
+}
 const robots = readFileSync(new URL('robots.txt', root), 'utf8');
 if (production) {
   assert.ok(!html.includes('noindex'));

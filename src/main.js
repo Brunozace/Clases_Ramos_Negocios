@@ -45,8 +45,16 @@ copy.addEventListener('click', async () => {
 });
 document.querySelector('#year').textContent = new Date().getFullYear();
 
-// Content stays available without JS or when reduced motion is requested.
+// Scroll reveals respect reduced motion; the study strip runs continuously as requested.
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const studyStrip = document.querySelector('.study-strip');
+const stripTrack = studyStrip.querySelector('.study-strip-track');
+// Equal-width copies make the loop seamless; assistive technology reads it once.
+const stripCopy = stripTrack.firstElementChild.cloneNode(true);
+stripCopy.setAttribute('aria-hidden', 'true');
+stripTrack.append(stripCopy);
+studyStrip.classList.add('is-animated');
+
 if ('IntersectionObserver' in window && !reducedMotion.matches) {
   const reveal = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

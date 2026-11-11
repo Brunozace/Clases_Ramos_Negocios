@@ -1,0 +1,48 @@
+{
+  "source": "Client workbook: Términos y condiciones.xlsx, Hoja1, A3:A20; received 2026-11-11. Privacy collection wording adapted to the site's WhatsApp/email contact flow; no forms are present.",
+  "pages": [
+    {
+      "filename": "terminos-y-condiciones.html",
+      "title": "Términos y condiciones",
+      "description": "Condiciones de los servicios educativos de Grupo A.G.MHZ: reservas, pagos, cancelaciones y reprogramaciones.",
+      "sections": [
+        {
+          "title": "Identificación del prestador",
+          "paragraphs": ["Los presentes Términos y Condiciones regulan los servicios de clases particulares y tutorías académicas prestados por Grupo A.G.MHZ, domiciliado para estos efectos en la Región del Biobío, Chile."]
+        },
+        {
+          "title": "Confirmación de clases",
+          "paragraphs": ["La reserva y confirmación de los bloques de clases se efectúa mediante coordinación directa vía WhatsApp. El horario queda agendado una vez confirmados los detalles por dicho medio."]
+        },
+        {
+          "title": "Medios de pago",
+          "paragraphs": ["Los pagos se realizan mediante transferencia electrónica a la cuenta bancaria de Grupo A.G.MHZ previa o posteriormente a la realización de la sesión, según lo acordado."]
+        },
+        {
+          "title": "Cancelaciones y reprogramaciones",
+          "paragraphs": ["Los cambios de horario o cancelaciones deben avisarse con un mínimo de 24 horas de anticipación vía WhatsApp."]
+        }
+      ]
+    },
+    {
+      "filename": "politica-de-privacidad.html",
+      "title": "Política de privacidad",
+      "description": "Uso de los datos de contacto y solicitudes de consulta, rectificación o eliminación de datos personales en Grupo A.G.MHZ.",
+      "sections": [
+        {
+          "title": "Responsable del tratamiento de datos",
+          "paragraphs": ["Grupo A.G.MHZ es el responsable de la recolección y tratamiento de los datos personales que nos facilitas al consultar por nuestros servicios educativos."]
+        },
+        {
+          "title": "Uso de los datos de contacto",
+          "paragraphs": ["Los datos recopilados, como teléfono o correo de contacto, se utilizan exclusivamente para la coordinación de los servicios educativos solicitados y no serán compartidos con terceros.", "Este sitio no contiene formularios de registro ni de pago. La coordinación de las clases se realiza mediante contacto directo por WhatsApp o correo electrónico."]
+        },
+        {
+          "title": "Derechos del usuario",
+          "paragraphs": ["Para consultas, rectificación o eliminación de tus datos personales, puedes escribir al correo de contacto:"],
+          "email": "clasesparticulareneg@gmail.com"
+        }
+      ]
+    }
+  ]
+}
