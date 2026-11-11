@@ -3,6 +3,7 @@ const nav = document.querySelector('#navigation');
 const mobile = window.matchMedia('(max-width: 760px)');
 function closeMenu(returnFocus = false) {
   toggle.setAttribute('aria-expanded', 'false');
+  toggle.querySelector('.visually-hidden').textContent = 'Abrir menú';
   nav.classList.remove('is-open');
   if (returnFocus) toggle.focus();
 }
@@ -11,6 +12,7 @@ document.documentElement.classList.add('enhanced');
 toggle.addEventListener('click', () => {
   const open = toggle.getAttribute('aria-expanded') !== 'true';
   toggle.setAttribute('aria-expanded', String(open));
+  toggle.querySelector('.visually-hidden').textContent = open ? 'Cerrar menú' : 'Abrir menú';
   nav.classList.toggle('is-open', open);
 });
 document.addEventListener('keydown', (event) => {
@@ -42,3 +44,52 @@ copy.addEventListener('click', async () => {
   }
 });
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+// Content stays available without JS or when reduced motion is requested.
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+if ('IntersectionObserver' in window && !reducedMotion.matches) {
+  const reveal = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('reveal-pending');
+        reveal.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('[data-reveal]').forEach((element) => {
+    if (element.getBoundingClientRect().top >= window.innerHeight) {
+      element.classList.add('reveal-pending');
+      reveal.observe(element);
+    }
+  });
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) {
+      reveal.disconnect();
+      document.querySelectorAll('.reveal-pending').forEach(el => el.classList.remove('reveal-pending'));
+    }
+  });
+}
+
+const header = document.querySelector('.site-header');
+const updateHeader = () => header.classList.toggle('is-scrolled', window.scrollY > 12);
+window.addEventListener('scroll', updateHeader, { passive: true });
+updateHeader();
+
+// Native details remain keyboard-accessible and functional without JavaScript.
+const questions = [...document.querySelectorAll('.faq-list details')];
+questions.forEach((question) => question.addEventListener('toggle', () => {
+  if (question.open) questions.filter(other => other !== question).forEach(other => { other.open = false; });
+}));
+
+if ('IntersectionObserver' in window) {
+  const sections = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      nav.querySelectorAll('a').forEach(link => {
+        if (link.hash === `#${entry.target.id}`) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  }, { rootMargin: '-15% 0px -60% 0px', threshold: 0 });
+  document.querySelectorAll('main > section').forEach(section => sections.observe(section));
+}

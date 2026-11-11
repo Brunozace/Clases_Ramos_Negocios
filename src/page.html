@@ -22,10 +22,10 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#inicio" aria-label="{{BRAND}}, inicio">{{BRANDMARK}}</a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" hidden>Menú <span aria-hidden="true">＋</span></button>
+      <a class="header-contact button button-whatsapp" href="{{WA}}">{{WAICON}} <span>Consultar</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" hidden><span class="visually-hidden">Abrir menú</span><span class="menu-lines" aria-hidden="true"></span></button>
       <nav id="navigation" aria-label="Navegación principal">
-        <a href="#universidad">Ramos</a><a href="#modalidades">Modalidades</a><a href="#contacto">Contacto</a>
-        <a class="button button-small button-whatsapp" href="{{WA}}">{{WAICON}} WhatsApp</a>
+        <a href="#universidad">Universidad y MBA</a><a href="#colegio">Colegio</a><a href="#modalidades">Conoce a Andrés</a><a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
@@ -33,45 +33,50 @@
     <section id="inicio" class="hero" aria-labelledby="hero-title">
       <div class="container hero-layout">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="short-line" aria-hidden="true"></span> ONLINE · PRESENCIAL EN CONCEPCIÓN</p>
-          <h1 id="hero-title">{{HEADLINE}}</h1>
-          <p class="tagline">{{TAGLINE}}</p>
+          <p class="eyebrow">CLASES PARTICULARES · UNIVERSIDAD, MBA Y COLEGIO</p>
+          <h1 id="hero-title">Aprende con enfoque<br><em>y organización.</em></h1>
           <p class="hero-description">{{SUPPORT}}</p>
-          <div class="hero-actions"><a class="button button-whatsapp" href="{{WA}}">{{WAICON}} Consultar por WhatsApp</a><a class="text-link" href="#universidad">Explorar ramos <span aria-hidden="true">↓</span></a></div>
-          <p class="hero-phone"><span>Conversemos sobre tus clases</span><a href="{{WA}}">{{PHONE}}</a></p>
+          <div class="hero-actions"><a class="button button-whatsapp" href="{{WA}}">{{WAICON}} Consultar por WhatsApp</a><a class="button button-outline" href="#universidad">Explorar ramos <span aria-hidden="true">↗</span></a></div>
+          <p class="hero-phone"><a href="{{WA}}">{{PHONE}}</a><span>Online · Presencial en Concepción</span></p>
         </div>
-        <aside class="study-index" aria-label="Encuentra tu nivel de estudio">
-          <div class="index-top"><span>APRENDE CON ENFOQUE</span><span aria-hidden="true">↘</span></div>
-          <p class="index-title">Tu próximo paso<br>empieza aquí.</p>
-          <div class="index-rule" aria-hidden="true"></div>
-          <a href="#universidad" class="index-row"><span class="index-number" aria-hidden="true">01</span><span><strong>Universidad y MBA</strong><small>Contabilidad, economía y más</small></span><span aria-hidden="true">↗</span></a>
-          <a href="#colegio" class="index-row"><span class="index-number" aria-hidden="true">02</span><span><strong>Colegio</strong><small>Ciencias, matemáticas e idiomas</small></span><span aria-hidden="true">↗</span></a>
-          <p class="index-bottom">Clases particulares con Andrés</p>
-        </aside>
+        <div class="hero-visual" data-reveal>
+          <picture><source srcset="/study-workspace-small.webp 768w, /study-workspace.webp 1536w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1240px) calc(100vw - 80px), 1160px" type="image/webp"><img src="/study-workspace.webp" width="1536" height="1024" alt="" fetchpriority="high" decoding="async"></picture>
+          <div class="image-caption"><span>Un ramo a la vez.</span><a href="#universidad" aria-label="Explorar los ramos disponibles"><span aria-hidden="true">↓</span></a></div>
+        </div>
       </div>
-      <div class="container hero-bottom"><span>Un ramo a la vez.</span><a href="#universidad">Encuentra el que necesitas <span aria-hidden="true">↓</span></a></div>
+      <div class="study-strip"><span>Universidad y MBA</span><span aria-hidden="true">✦</span><span>Colegio</span><span aria-hidden="true">✦</span><span>Online y presencial</span></div>
+      <div class="container introduction" data-reveal><p>Distintos ramos.<br><em>Un lugar para empezar.</em></p><span>Encuentra lo que necesitas estudiar y conversemos sobre tus clases.</span></div>
     </section>
     <section id="universidad" class="section university" aria-labelledby="university-title">
       <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">01 / RAMOS</p><h2 id="university-title">Universidad y MBA</h2></div><div class="section-intro"><p>Encuentra tu ramo y consulta directamente por WhatsApp.</p><a class="text-link" href="#colegio">¿Buscas clases para colegio? <span aria-hidden="true">↓</span></a></div></div>
+        <div class="section-heading" data-reveal><p class="eyebrow">01 / TU PRÓXIMO RAMO</p><h2 id="university-title">Universidad y MBA</h2><p>Encuentra tu ramo. Selecciónalo para consultar por WhatsApp.</p></div>
         <div class="subject-grid">{{GROUPS}}</div>
-        <p class="catalog-note"><span aria-hidden="true">↗</span> Selecciona un ramo para consultar sus valores y disponibilidad.</p>
+        <p class="catalog-note"><a class="text-link" href="#colegio">¿Buscas clases para colegio? <span aria-hidden="true">↓</span></a></p>
       </div>
     </section>
     <section id="colegio" class="section school" aria-labelledby="school-title">
       <div class="container school-layout">
-        <div><p class="eyebrow">02 / ASIGNATURAS</p><h2 id="school-title">También para<br>el colegio.</h2><p class="section-intro">Clases particulares para escolares.<br>Consulta por la asignatura que necesitas.</p></div>
-        <div><h3 class="visually-hidden">Asignaturas de colegio</h3><ul class="school-subjects">{{SCHOOL}}</ul><p class="small-note">Consultas de estudiantes y apoderados por WhatsApp.</p></div>
+        <div data-reveal><p class="eyebrow">02 / TAMBIÉN PARA ESCOLARES</p><h2 id="school-title">El aprendizaje<br><em>empieza aquí.</em></h2><p class="section-intro">Clases particulares para el colegio.<br>Consulta por la asignatura que necesitas.</p><span class="school-note">Estudiantes y apoderados, bienvenidos.</span></div>
+        <div data-reveal><h3 class="visually-hidden">Asignaturas de colegio</h3><ul class="school-subjects">{{SCHOOL}}</ul></div>
       </div>
     </section>
     <section id="modalidades" class="section instructor" aria-labelledby="instructor-title">
       <div class="container">
-        <div class="profile"><div><p class="eyebrow">03 / PROFESOR Y MODALIDADES</p><h2 id="instructor-title">Conoce a Andrés</h2><p class="role">Profesor de clases particulares</p></div><div class="profile-copy"><p>{{INTRO}}</p><a class="text-link" href="{{WA}}">Consultar con Andrés <span aria-hidden="true">↗</span></a></div></div>
+        <div class="profile" data-reveal><div><p class="eyebrow">03 / CON QUIÉN VAS A APRENDER</p><h2 id="instructor-title">Conoce a Andrés</h2><p class="role">Profesor de clases particulares</p></div><div class="profile-copy"><p>{{INTRO}}</p><a class="text-link" href="{{WA}}">Consultar con Andrés <span aria-hidden="true">↗</span></a></div></div>
         <div class="modalities"><article><span class="mode-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="5" width="22" height="16" rx="2"/><path d="M2 26h28M11 21l-1 5m11-5 1 5"/></svg></span><div><h3>Online</h3><p>{{ONLINE}}</p></div></article><article><span class="mode-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M26 13c0 8-10 15-10 15S6 21 6 13a10 10 0 0 1 20 0Z"/><circle cx="16" cy="13" r="3"/></svg></span><div><h3>Presencial en Concepción</h3><p>{{INPERSON}}</p></div></article></div>
+        <div class="faq-block">
+          <div class="faq-intro" data-reveal><p class="eyebrow">ANTES DE EMPEZAR</p><h3>Resolvamos<br><em>tus dudas.</em></h3><p>Lo esencial para dar el siguiente paso.</p></div>
+          <div class="faq-list">
+            <details name="preguntas"><summary>¿Cómo consulto por una clase?<span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-answer"><p>Selecciona tu ramo o usa el botón de WhatsApp para conversar con Andrés. Podrás consultar valores y disponibilidad antes de acordar tus clases.</p></div></details>
+            <details name="preguntas"><summary>¿Las clases son online o presenciales?<span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-answer"><p>Ambas modalidades están disponibles. Las clases presenciales son en Concepción; consulta por WhatsApp el lugar y la disponibilidad.</p></div></details>
+            <details name="preguntas"><summary>¿Cuánto cuestan las clases?<span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-answer"><p>Consulta los valores directamente con Andrés por WhatsApp, indicando el ramo y si buscas clases para universidad, MBA o colegio.</p></div></details>
+            <details name="preguntas"><summary>¿Escribir por WhatsApp confirma una reserva?<span class="faq-toggle" aria-hidden="true">+</span></summary><div class="faq-answer"><p>No. El enlace abre un mensaje que puedes revisar antes de enviarlo. Los horarios y las condiciones de las clases se acuerdan directamente con Andrés.</p></div></details>
+          </div>
+        </div>
       </div>
     </section>
     <section id="contacto" class="contact section" aria-labelledby="contact-title">
-      <div class="container contact-layout"><div><p class="eyebrow">04 / HABLEMOS</p><h2 id="contact-title">Conversemos<br>sobre tus clases.</h2><p>Consulta valores y disponibilidad por WhatsApp.</p></div><div class="contact-actions"><a class="contact-phone" href="{{WA}}">{{PHONE}}</a><a class="button button-light button-whatsapp" href="{{WA}}">{{WAICON}} Escribir por WhatsApp</a><button id="copy-phone" class="copy-phone" type="button" data-phone="{{PHONE}}" hidden>Copiar número <span aria-hidden="true">⧉</span></button><p id="copy-status" role="status" aria-live="polite"></p></div></div>
+      <div class="container contact-layout" data-reveal><p class="eyebrow">04 / UN MENSAJE PARA EMPEZAR</p><h2 id="contact-title">Tu próximo paso.<br><em>Lo conversamos.</em></h2><p>Consulta valores y disponibilidad por WhatsApp.</p><div class="contact-actions"><a class="contact-phone" href="{{WA}}">{{PHONE}}</a><a class="button button-whatsapp" href="{{WA}}">{{WAICON}} Escribir por WhatsApp</a><button id="copy-phone" class="copy-phone" type="button" data-phone="{{PHONE}}" hidden>Copiar número <span aria-hidden="true">⧉</span></button><p id="copy-status" role="status" aria-live="polite"></p></div></div>
     </section>
   </main>
   <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="#inicio" aria-label="{{BRAND}}, inicio">{{BRANDMARK}}</a><p>© <span id="year">{{YEAR}}</span> · Clases particulares con Andrés</p><a class="text-link" href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a></div></footer>

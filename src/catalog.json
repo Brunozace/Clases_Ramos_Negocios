@@ -1,0 +1,71 @@
+{
+  "universityAndMba": {
+    "label": "Universidad y MBA",
+    "groups": [
+      {
+        "id": "contabilidad-finanzas",
+        "name": "Ramos contables y financieros",
+        "subjects": [
+          "Contabilidad",
+          "Contabilidad Financiera",
+          "Contabilidad de Costos",
+          "Presupuesto",
+          "Control de Gestión",
+          "Finanzas",
+          "Finanzas Corporativas",
+          "Evaluación de Proyectos"
+        ]
+      },
+      {
+        "id": "economia",
+        "name": "Ramos económicos",
+        "subjects": [
+          "Microeconomía",
+          "Macroeconomía",
+          "Organización Industrial"
+        ]
+      },
+      {
+        "id": "matematicas-operaciones",
+        "name": "Ramos matemáticos y operacionales",
+        "subjects": [
+          "Álgebra",
+          "Cálculo",
+          "Dirección de la Producción"
+        ]
+      },
+      {
+        "id": "estadistica",
+        "name": "Estadística",
+        "subjects": [
+          "Estadística y Probabilidades",
+          "Econometría"
+        ]
+      },
+      {
+        "id": "apoyo",
+        "name": "Ramos de apoyo",
+        "subjects": [
+          "Inglés",
+          "Alemán",
+          "Excel"
+        ]
+      }
+    ]
+  },
+  "school": {
+    "label": "Colegio",
+    "subjects": [
+      "Matemáticas",
+      "Física",
+      "Química",
+      "Inglés",
+      "Alemán"
+    ]
+  },
+  "expectedEntryCounts": {
+    "universityAndMba": 19,
+    "school": 5,
+    "total": 24
+  }
+}

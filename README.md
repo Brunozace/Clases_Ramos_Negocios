@@ -2,6 +2,8 @@
 
 Spanish-language static landing page for `clasesramosdenegocios.cl`, built with Vite and vanilla HTML, CSS and JavaScript. It presents Andrés's classes, 19 university/MBA subjects and five school subjects, with general and subject-specific WhatsApp links.
 
+Bruno authorized pushing this redesign to `main`. Production deployment remains a separate step. The design takes visual inspiration from the supplied mobile reference video: centered serif headings, generous whitespace, rounded imagery, subtle scroll entrances and expandable questions. The original logo, green WhatsApp buttons and complete catalog are preserved. FAQs are inside the instructor/modalities section, retaining five main sections.
+
 ## Run locally
 
 Use Node 22.17.0 (recorded in `.node-version` and `.nvmrc`).
@@ -22,10 +24,11 @@ npm run preview
 
 ## Editing
 
-- `clases-codex-kit/02_CONTENT.json`: editorial source for facts, catalog, contact details and proposed copy. The original kit is retained as reference; later explicit user corrections take precedence.
+- `src/catalog.json`: current subject catalog, including Bruno's review changes. Edit subject names here; the page and WhatsApp drafts use the same values.
+- `clases-codex-kit/02_CONTENT.json`: original editorial source for facts, contact details and proposed copy. The kit is preserved as reference; `src/catalog.json` overrides its original catalog.
 - `src/page.html`: page template. Edit this instead of generated `index.html`.
 - `src/styles.css`: responsive styling, including green WhatsApp buttons.
-- `src/main.js`: accessible mobile navigation and copy-number enhancement.
+- `src/main.js`: mobile navigation, current-section indication, copy-number enhancement and optional scroll reveals. Reduced-motion preferences disable animation. Native FAQ disclosures work without JavaScript; JS also supports single-open behavior on older browsers.
 - `scripts/render.mjs`: generates static content and encoded WhatsApp links before development/build.
 - `public/`: local assets. See `ASSETS.md` for provenance.
 

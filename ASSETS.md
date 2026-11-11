@@ -2,7 +2,8 @@
 
 - `public/whatsapp.svg`: WhatsApp brand icon from [Simple Icons](https://github.com/simple-icons/simple-icons/blob/develop/icons/whatsapp.svg), downloaded 10 November 2026. Simple Icons distributes its icons under CC0; brand trademarks remain their owners' property. Inlined at build time with inherited button color and hidden from assistive technology because the adjacent text names WhatsApp.
 - `public/favicon.svg` and modality line icons in `src/page.html`: original simple book, computer and location illustrations created for this project.
-- No photography, remote fonts or externally hosted runtime assets are used.
+- `public/study-workspace.webp` (1536 × 1024) and `public/study-workspace-small.webp` (768 × 512): AI-generated decorative study-workspace image, created with OpenAI image generation for this local redesign on 10 November 2026. Optimized WebP derivatives of the generated original. It depicts no person and is not a photograph of Andrés or an actual teaching venue. Used with empty alternative text because the surrounding page supplies all relevant information.
+- Typography uses installed system fonts, including a serif heading stack. No remote fonts or externally hosted runtime assets are used.
 
 ## Supplied business logo
 

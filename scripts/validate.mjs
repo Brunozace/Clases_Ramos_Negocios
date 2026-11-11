@@ -12,11 +12,11 @@ const anchors = [...html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)].map(m => ({ .
 const expected = c.catalog.universityAndMba.groups.flatMap(g => g.subjects.map(subject => ({ subject, level: c.catalog.universityAndMba.label, group: g.id })))
   .concat(c.catalog.school.subjects.map(subject => ({ subject, level: c.catalog.school.label, group: 'colegio' })));
 const subjects = anchors.filter(a => a['data-subject']);
-assert.equal(subjects.length, 24, '24 subject entries');
+assert.equal(subjects.length, c.catalog.expectedEntryCounts.total, 'Expected subject count');
 assert.deepEqual(subjects.map(a => ({ subject: a['data-subject'], level: a['data-level'], group: a['data-group'] })), expected, 'Exact catalog, grouping and order');
 for (const a of subjects) assert.ok(a.text.includes(a['data-subject']), 'Visible name matches catalog');
 const contact = anchors.filter(a => a.href?.startsWith('https://wa.me/'));
-assert.ok(contact.length >= 29, 'All prominent CTAs exist');
+assert.equal(contact.length - subjects.length, 6, 'All six general contact links exist');
 for (const a of contact) {
   const url = new URL(a.href);
   assert.equal(url.pathname, '/' + c.confirmed.contact.whatsappDigits, 'Correct recipient');
@@ -36,10 +36,17 @@ assert.ok(html.includes(c.confirmed.contact.phoneDisplay));
 const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
 for (const a of anchors.filter(a => a.href?.startsWith('#'))) assert.ok(ids.has(a.href.slice(1)), 'Valid anchor: ' + a.href);
 for (const m of html.matchAll(/(?:src|href)="(\/[^"#?]+)"/g)) assert.ok(existsSync(new URL(m[1].slice(1), root)), 'Local asset exists: ' + m[1]);
+for (const m of html.matchAll(/srcset="([^"]+)"/g)) {
+  for (const candidate of m[1].split(',')) {
+    const path = candidate.trim().split(/\s+/)[0];
+    if (path.startsWith('/')) assert.ok(existsSync(new URL(path.slice(1), root)), 'Responsive image exists: ' + path);
+  }
+}
 function scan(dir) {
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const path = join(dir, entry.name);
     if (entry.isDirectory()) { scan(path); continue; }
+    if (!/\.(?:html|css|js|json|txt|xml|svg)$/i.test(entry.name)) continue;
     const source = readFileSync(path, 'utf8');
     assert.ok(!/7982[\s-]*1150/.test(source), 'Obsolete contact absent');
     assert.ok(!/foto pendiente|photo pending|\{\{[A-Z]+\}\}/i.test(source), 'No unresolved placeholders');

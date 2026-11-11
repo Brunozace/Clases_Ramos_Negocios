@@ -28,4 +28,4 @@ html = html.replace(/\{\{([A-Z]+)\}\}/g, (_, key) => {
   return tokens[key];
 });
 writeFileSync(new URL('../index.html', import.meta.url), html);
-console.log('Generated index.html with 24 static subject links.');
+console.log(`Generated index.html with ${c.catalog.expectedEntryCounts.total} static subject links.`);
