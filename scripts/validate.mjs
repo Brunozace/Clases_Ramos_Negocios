@@ -33,6 +33,7 @@ const instructorSection = html.match(/<section id="modalidades"[\s\S]*?<\/sectio
 assert.ok(instructorSection && !instructorSection.includes('<img'), 'No substitute instructor portrait or placeholder');
 assert.ok(!html.includes('<form'), 'No inquiry forms');
 assert.ok(html.includes(c.confirmed.contact.phoneDisplay));
+assert.ok(html.includes(`data-phone="${c.confirmed.contact.phoneDisplay}"`), 'Copy-number uses the current contact');
 const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map(m => m[1]));
 for (const a of anchors.filter(a => a.href?.startsWith('#'))) assert.ok(ids.has(a.href.slice(1)), 'Valid anchor: ' + a.href);
 for (const m of html.matchAll(/(?:src|href)="(\/[^"#?]+)"/g)) assert.ok(existsSync(new URL(m[1].slice(1), root)), 'Local asset exists: ' + m[1]);
@@ -48,7 +49,7 @@ function scan(dir) {
     if (entry.isDirectory()) { scan(path); continue; }
     if (!/\.(?:html|css|js|json|txt|xml|svg)$/i.test(entry.name)) continue;
     const source = readFileSync(path, 'utf8');
-    assert.ok(!/7982[\s-]*1150/.test(source), 'Obsolete contact absent');
+    assert.ok(!/7549[\s-]*1987/.test(source), 'Superseded contact absent');
     assert.ok(!/foto pendiente|photo pending|\{\{[A-Z]+\}\}/i.test(source), 'No unresolved placeholders');
   }
 }

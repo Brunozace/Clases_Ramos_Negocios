@@ -1,0 +1,15 @@
+# Render-hosted review build. Configure the verified custom domain separately.
+services:
+  - type: web
+    runtime: static
+    name: clases-ramos-de-negocios
+    repo: https://github.com/Brunozace/Clases_Ramos_Negocios
+    branch: main
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    autoDeployTrigger: "off"
+    envVars:
+      - key: NODE_VERSION
+        value: "22.17.0"
+      - key: SKIP_INSTALL_DEPS
+        value: "true"

@@ -25,7 +25,8 @@ npm run preview
 ## Editing
 
 - `src/catalog.json`: current subject catalog, including Bruno's review changes. Edit subject names here; the page and WhatsApp drafts use the same values.
-- `clases-codex-kit/02_CONTENT.json`: original editorial source for facts, contact details and proposed copy. The kit is preserved as reference; `src/catalog.json` overrides its original catalog.
+- `src/contact.json`: current confirmed contact: **+56 9 7982 1150**, WhatsApp destination **56979821150**. Bruno's latest correction supersedes the archived kit's phone instructions. Visible numbers, copy-number data and every WhatsApp link use this source.
+- `clases-codex-kit/02_CONTENT.json`: original editorial source for facts and proposed copy. The kit is preserved as reference; `src/catalog.json` and `src/contact.json` override its original catalog and contact.
 - `src/page.html`: page template. Edit this instead of generated `index.html`.
 - `src/styles.css`: responsive styling, including green WhatsApp buttons.
 - `src/main.js`: mobile navigation, current-section indication, copy-number enhancement and optional scroll reveals. Reduced-motion preferences disable animation. Native FAQ disclosures work without JavaScript; JS also supports single-open behavior on older browsers.
@@ -52,8 +53,12 @@ The production build removes `noindex` and adds the canonical URL, Open Graph UR
 
 ## Render Static Site
 
+The repository includes `render.yaml` with the review deployment settings. [Deploy this repository to Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2FBrunozace%2FClases_Ramos_Negocios). Sign in to the intended Render account and review the single Static Site before creating it. If Render cannot access the repository, connect GitHub and grant access to this repository.
+
+The Blueprint pins Node 22.17.0, skips Render's automatic dependency installation because the build command runs `npm ci`, and publishes only `dist/`. It keeps auto-deploy disabled so future GitHub pushes do not publish changes without a deployment action. The first deployment uses Render's assigned HTTPS `onrender.com` URL and retains `noindex` until the official domain is ready. No service or successful deployment is implied by this configuration file.
+
 1. Connect `https://github.com/Brunozace/Clases_Ramos_Negocios`, branch `main`.
-2. Use the repository root, Node 22.17.0, build command `npm ci && npm run build`, and publish directory `dist` for review. Dependency installation is explicit in this command.
+2. Use the repository root, Node 22.17.0, build command `npm ci && npm run build`, and publish directory `dist` for review. Set `SKIP_INSTALL_DEPS=true`; dependency installation is explicit in this command.
 3. Review any automatic deployment settings before enabling them. Confirm account plan/usage terms in Render.
 4. For approved production, configure `CONFIRMED_SITE_URL` with the verified URL above and change the command to `npm ci && npm run build:production`.
 5. Follow Render's current [custom-domain instructions](https://render.com/docs/custom-domains) and the actual service's DNS targets. Preserve unrelated DNS records. Verify HTTPS and apex/www redirects before declaring launch complete.

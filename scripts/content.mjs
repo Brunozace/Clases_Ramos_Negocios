@@ -3,6 +3,8 @@ import { readFileSync } from 'node:fs';
 export const content = JSON.parse(readFileSync(new URL('../clases-codex-kit/02_CONTENT.json', import.meta.url), 'utf8'));
 // Current client-approved catalog overrides the preserved original handoff.
 content.catalog = JSON.parse(readFileSync(new URL('../src/catalog.json', import.meta.url), 'utf8'));
+// Bruno's latest phone correction supersedes the contact in the archived kit.
+content.confirmed.contact = JSON.parse(readFileSync(new URL('../src/contact.json', import.meta.url), 'utf8'));
 export const escape = (text) => String(text).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 export function message(subject, level) {
   return subject
