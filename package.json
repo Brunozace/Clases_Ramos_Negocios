@@ -1,0 +1,16 @@
+{
+  "name": "clases-ramos-de-negocios",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12.0 <23" },
+  "scripts": {
+    "dev": "node scripts/render.mjs && vite --host 127.0.0.1",
+    "build": "node scripts/render.mjs && vite build && node scripts/validate.mjs",
+    "build:production": "node scripts/render.mjs && vite build --mode launch && node scripts/validate.mjs --production",
+    "preview": "vite preview --host 127.0.0.1",
+    "validate": "node scripts/validate.mjs",
+    "generate": "node scripts/render.mjs"
+  },
+  "devDependencies": { "vite": "8.3.7" }
+}

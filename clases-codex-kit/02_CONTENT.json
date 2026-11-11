@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "1.1",
+  "status": "Editorial handoff; confirmed facts plus proposed copy; not deployed",
+  "language": "es-CL",
+  "sourcePrecedence": [
+    "Later explicit client corrections relayed by Bruno",
+    "Nonconflicting original Excel content",
+    "Proposed implementation defaults"
+  ],
+  "confirmed": {
+    "businessName": "clasesramosdenegocios.cl",
+    "requestedDomain": "clasesramosdenegocios.cl",
+    "domainRegistrationVerified": false,
+    "instructorCount": 1,
+    "modalities": [
+      "online",
+      "presencial"
+    ],
+    "inPersonCity": "Concepción",
+    "pricingPolicy": "Consultar valores y disponibilidad por WhatsApp",
+    "tagline": "Aprende con enfoque y organización",
+    "contact": {
+      "phoneE164": "+56975491987",
+      "phoneDisplay": "+56 9 7549 1987",
+      "whatsappDigits": "56975491987",
+      "whatsappBaseUrl": "https://wa.me/56975491987"
+    },
+    "instructorName": "Andrés"
+  },
+  "catalog": {
+    "universityAndMba": {
+      "label": "Universidad y MBA",
+      "groups": [
+        {
+          "id": "contabilidad-finanzas",
+          "name": "Ramos contables y financieros",
+          "subjects": [
+            "Contabilidad",
+            "Contabilidad Financiera",
+            "Contabilidad de Costos",
+            "Presupuesto",
+            "Control de Gestión",
+            "Finanzas",
+            "Finanzas Corporativas",
+            "Evaluación de Proyectos"
+          ]
+        },
+        {
+          "id": "economia",
+          "name": "Ramos económicos",
+          "subjects": [
+            "Microeconomía",
+            "Macroeconomía",
+            "Organización Industrial"
+          ]
+        },
+        {
+          "id": "matematicas-operaciones",
+          "name": "Ramos matemáticos y operacionales",
+          "subjects": [
+            "Álgebra",
+            "Cálculo",
+            "Dirección de la Producción"
+          ]
+        },
+        {
+          "id": "estadistica",
+          "name": "Estadística",
+          "subjects": [
+            "Estadística y Probabilidades",
+            "Econometría"
+          ]
+        },
+        {
+          "id": "apoyo",
+          "name": "Ramos de apoyo",
+          "subjects": [
+            "Inglés",
+            "Alemán",
+            "Excel"
+          ]
+        }
+      ]
+    },
+    "school": {
+      "label": "Colegio",
+      "subjects": [
+        "Matemáticas",
+        "Física",
+        "Química",
+        "Inglés",
+        "Alemán"
+      ]
+    },
+    "expectedEntryCounts": {
+      "universityAndMba": 19,
+      "school": 5,
+      "total": 24
+    }
+  },
+  "proposedCopy": {
+    "hero": {
+      "headline": "Clases particulares para universitarios y escolares",
+      "support": "Clases para universidad, MBA y colegio. Modalidad online y presencial en Concepción.",
+      "cta": "Consultar por WhatsApp"
+    },
+    "modalities": {
+      "heading": "Modalidades de clases",
+      "online": {
+        "title": "Online",
+        "description": "Consulta por clases online según el ramo que necesitas."
+      },
+      "inPerson": {
+        "title": "Presencial en Concepción",
+        "description": "Consulta por WhatsApp el lugar y la disponibilidad para clases presenciales."
+      },
+      "instructorLine": "Las clases son impartidas por Andrés."
+    },
+    "contact": {
+      "heading": "Conversemos sobre tus clases",
+      "description": "Consulta valores y disponibilidad por WhatsApp.",
+      "cta": "Escribir por WhatsApp",
+      "copyLabel": "Copiar número",
+      "copySuccess": "Número copiado",
+      "copyFailure": "No se pudo copiar. Selecciona el número y cópialo manualmente."
+    },
+    "whatsapp": {
+      "generalMessage": "Hola, me interesan las clases particulares. Quisiera consultar valores y disponibilidad.",
+      "subjectTemplate": "Hola, me interesan las clases de {ramo} para {nivel}. Quisiera consultar valores y disponibilidad."
+    },
+    "seo": {
+      "title": "Clases particulares online y en Concepción | clasesramosdenegocios.cl",
+      "description": "Clases particulares para universidad, MBA y colegio. Online y presenciales en Concepción. Consulta ramos, valores y disponibilidad por WhatsApp."
+    },
+    "instructor": {
+      "sectionPlacement": "Within section 4, Profesor y modalidades (#modalidades)",
+      "heading": "Conoce a Andrés",
+      "role": "Profesor de clases particulares",
+      "introduction": "Soy Andrés e imparto clases particulares para estudiantes de universidad, MBA y colegio, en modalidad online y presencial en Concepción. Escríbeme por WhatsApp para consultar por tu ramo, valores y disponibilidad.",
+      "cta": "Consultar con Andrés",
+      "photo": {
+        "source": null,
+        "status": "Awaiting genuine authorized portrait from client",
+        "suggestedPublishedFilename": "andres-profesor.webp",
+        "alt": "Andrés, profesor de clases particulares",
+        "preferredAspectRatio": "4:5 or 3:4",
+        "fallback": "Render the profile as a complete text-only block; omit image column and all placeholders"
+      }
+    }
+  },
+  "proposedDesign": {
+    "colors": {
+      "navy": "#10243A",
+      "white": "#FFFFFF",
+      "nearBlack": "#111827",
+      "surface": "#F3F5F7",
+      "mutedText": "#475569"
+    },
+    "style": "Sober, clean, restrained, prominent visible phone",
+    "imageFallback": "Typography-led hero with no photo"
+  },
+  "unconfirmed": {
+    "biography": null,
+    "qualifications": null,
+    "logo": null,
+    "photos": null,
+    "streetAddress": null,
+    "schedule": null,
+    "lessonDuration": null,
+    "prices": null,
+    "socialLinks": null,
+    "instructorSurname": null,
+    "instructorPortrait": null
+  },
+  "editorialNotes": [
+    "JSON is a content baseline, not a browser-side fetching requirement.",
+    "Copy may be refined during review; do not alter confirmed facts without instruction.",
+    "School and university languages are separate catalog entries.",
+    "Do not publish unconfirmed keys as placeholders.",
+    "Original workbook phone is superseded; never import its contact into the website.",
+    "Andrés is the confirmed first name. Do not invent a surname or use a stock/AI-generated portrait as his identity."
+  ],
+  "examples": {
+    "generalWhatsappUrl": "https://wa.me/56975491987?text=Hola%2C%20me%20interesan%20las%20clases%20particulares.%20Quisiera%20consultar%20valores%20y%20disponibilidad.",
+    "subjectWhatsappUrl": "https://wa.me/56975491987?text=Hola%2C%20me%20interesan%20las%20clases%20de%20Evaluaci%C3%B3n%20de%20Proyectos%20para%20Universidad%20y%20MBA.%20Quisiera%20consultar%20valores%20y%20disponibilidad."
+  }
+}
