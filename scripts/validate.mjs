@@ -70,15 +70,25 @@ for (const page of legal.pages) {
     assert.ok(existsSync(new URL(match[1] === '/' ? 'index.html' : match[1].slice(1), root)), 'Legal page target exists');
   }
   assert.equal(legalHtml.includes('content="noindex, nofollow"'), !production);
-  if (production) assert.ok(legalHtml.includes(`rel="canonical" href="https://clasesramosdenegocios.cl/${page.filename}"`));
+  if (production) {
+    assert.ok(legalHtml.includes('content="index, follow"'));
+    assert.ok(!legalHtml.includes('noindex'));
+    assert.ok(legalHtml.includes(`rel="canonical" href="https://clasesramosdenegocios.cl/${page.filename}"`));
+    assert.ok(legalHtml.includes(`property="og:url" content="https://clasesramosdenegocios.cl/${page.filename}"`));
+  }
 }
 const robots = readFileSync(new URL('robots.txt', root), 'utf8');
 if (production) {
   assert.ok(!html.includes('noindex'));
+  assert.ok(html.includes('content="index, follow"'));
   assert.ok(html.includes('rel="canonical" href="https://clasesramosdenegocios.cl/"'));
   assert.ok(html.includes('property="og:url" content="https://clasesramosdenegocios.cl/"'));
   assert.ok(robots.includes('Sitemap: https://clasesramosdenegocios.cl/sitemap.xml'));
-  assert.ok(readFileSync(new URL('sitemap.xml', root), 'utf8').includes('<loc>https://clasesramosdenegocios.cl/</loc>'));
+  const sitemap = readFileSync(new URL('sitemap.xml', root), 'utf8');
+  assert.deepEqual([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]),
+    ['', ...legal.pages.map(page => page.filename)].map(path => `https://clasesramosdenegocios.cl/${path}`),
+    'Sitemap includes exactly the three canonical production URLs');
+  assert.ok(!/^Disallow:\s*\/\s*$/m.test(robots), 'Production crawling is allowed');
 } else {
   assert.ok(html.includes('content="noindex, nofollow"'));
   assert.ok(!html.includes('rel="canonical"'));

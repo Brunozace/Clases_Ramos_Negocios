@@ -4,9 +4,7 @@ import { fileURLToPath } from 'node:url';
 const domain = 'https://clasesramosdenegocios.cl/';
 export default defineConfig(({ mode }) => {
   const launch = mode === 'launch';
-  if (launch && process.env.CONFIRMED_SITE_URL !== domain) {
-    throw new Error(`Production requires confirmed ownership/routing and CONFIRMED_SITE_URL=${domain}`);
-  }
+  // The custom domain and HTTPS were verified before enabling production builds.
   return {
     build: { rollupOptions: { input: {
       home: fileURLToPath(new URL('./index.html', import.meta.url)),

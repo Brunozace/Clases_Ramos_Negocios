@@ -1,4 +1,4 @@
-# Render-hosted review build. Configure the verified custom domain separately.
+# Production build for the verified clasesramosdenegocios.cl custom domain.
 services:
   - type: web
     runtime: static
